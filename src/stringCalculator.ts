@@ -3,12 +3,7 @@ export class StringCalculator {
     if (!numbersString) {
       return 0;
     }
-    if (!numbersString.includes(",")) {
-      return parseInt(numbersString);
-    }
-    return (
-      parseInt(numbersString.split(",")[0]) +
-      parseInt(numbersString.split(",")[1])
-    );
+    const numArray = numbersString.split(",").map((num) => parseInt(num));
+    return numArray.reduce((sum, num) => sum + num, 0);
   }
 }
