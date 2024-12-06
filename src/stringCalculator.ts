@@ -1,31 +1,41 @@
 export class StringCalculator {
-  private getNumbersToSum(numbersStr: string): string[] {
+  private getNumbersStrAndDelimiter(numbersStr: string): {
+    numbersStr: string;
+    delimiter: string;
+  } {
     const customDelimiterKeyword = "//";
+    let delimiter = ",";
     if (numbersStr.startsWith(customDelimiterKeyword)) {
       const delimiterEndIndex = numbersStr.indexOf("\n");
-      const delimiter = numbersStr.slice(
+      delimiter = numbersStr.slice(
         customDelimiterKeyword.length,
         delimiterEndIndex
       );
-      const numbers = numbersStr.slice(delimiterEndIndex + 1);
-      return this.splitNumbers(numbers, delimiter);
+      numbersStr = numbersStr.slice(delimiterEndIndex + 1);
     }
-    return this.splitNumbers(numbersStr);
+    return {
+      numbersStr,
+      delimiter,
+    };
   }
 
-  private splitNumbers(numbersStr: string, delimiter: string = ","): string[] {
+  private splitAndAddNumbers = (
+    numbersStr: string,
+    delimiter: string
+  ): number => {
     const delimiterRegex = new RegExp(`[${delimiter}\n]`);
-    return numbersStr.split(delimiterRegex).map((num) => num.trim());
-  }
+    return numbersStr
+      .split(delimiterRegex)
+      .map((num) => parseInt(num))
+      .reduce((sum, num) => sum + num, 0);
+  };
 
-  public Add(numbersStr: string): number {
-    if (!numbersStr) {
+  public Add(inputStr: string): number {
+    if (!inputStr) {
       return 0;
     }
 
-    const numberStrToSum = this.getNumbersToSum(numbersStr);
-    return numberStrToSum
-      .map((num) => parseInt(num))
-      .reduce((sum, num) => sum + num, 0);
+    const { numbersStr, delimiter } = this.getNumbersStrAndDelimiter(inputStr);
+    return this.splitAndAddNumbers(numbersStr, delimiter);
   }
 }
