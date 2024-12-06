@@ -17,7 +17,10 @@ describe("String Calculator", () => {
     expect(result).toBe(1);
   });
 
-  it.todo("Two numbers separated by comma");
+  it("Two numbers separated by comma", () => {
+    const result = calculator.Add("1,2");
+    expect(result).toBe(3);
+  });
 
   it.todo("Multiple numbers separated by comma");
 });
