@@ -22,5 +22,8 @@ describe("String Calculator", () => {
     expect(result).toBe(3);
   });
 
-  it.todo("Multiple numbers separated by comma");
+  it("Multiple numbers separated by comma", () => {
+    const result = calculator.Add("1,2,3,4,5");
+    expect(result).toBe(15);
+  });
 });
