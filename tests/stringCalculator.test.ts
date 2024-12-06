@@ -51,5 +51,7 @@ describe("String Calculator", () => {
     expect(result).toBe(2);
   });
 
-
+  it.todo("Support delimiters of any length");
+  it.todo("Support multiple delimiters");
+  it.todo("Support multiple delimiters with any length");
 });
