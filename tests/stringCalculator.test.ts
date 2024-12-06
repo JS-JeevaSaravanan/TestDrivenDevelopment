@@ -3,8 +3,12 @@ import { StringCalculator } from "../src/stringCalculator";
 describe("String Calculator", () => {
   let calculator: StringCalculator;
 
-  beforeEach(() => {
+  beforeAll(() => {
     calculator = new StringCalculator();
+  });
+
+  afterAll(() => {
+    calculator = null!;
   });
 
   it("Empty string should return 0", () => {
@@ -46,4 +50,6 @@ describe("String Calculator", () => {
     const result = calculator.Add("2,1001");
     expect(result).toBe(2);
   });
+
+
 });
