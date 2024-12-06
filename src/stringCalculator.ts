@@ -38,7 +38,7 @@ export class StringCalculator {
     }
 
     return numberArray.reduce((sum, num) => {
-      return sum + num;
+      return num < 1001 ? sum + num : sum;
     });
   }
 }
