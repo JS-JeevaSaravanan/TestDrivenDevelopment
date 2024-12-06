@@ -32,5 +32,8 @@ describe("String Calculator", () => {
     expect(result).toBe(6);
   });
 
-  it.todo("Support custom delimiter specified in the beginning of the string");
+  it("Support custom delimiter specified in the beginning of the string", () => {
+    const result = calculator.Add("//;\n1;2");
+    expect(result).toBe(3);
+  });
 });
