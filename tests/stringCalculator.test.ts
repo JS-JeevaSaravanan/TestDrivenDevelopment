@@ -27,6 +27,10 @@ describe("String Calculator", () => {
     expect(result).toBe(15);
   });
 
-  it.todo("Support newline as delimiter instead of comma");
+  it("Support newline as delimiter instead of comma", () => {
+    const result = calculator.Add("1\n2,3");
+    expect(result).toBe(6);
+  });
+
   it.todo("Support custom delimiter specified in the beginning of the string");
 });
