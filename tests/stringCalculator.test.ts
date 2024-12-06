@@ -42,5 +42,8 @@ describe("String Calculator", () => {
     expect(result).toThrow(`Negatives not allowed: -2, -4`);
   });
 
-  it.todo("Numbers greater than 1000 should be ignored in the sum calculation");
+  it("Numbers greater than 1000 should be ignored in the sum calculation", () => {
+    const result = calculator.Add("2,1001");
+    expect(result).toBe(2);
+  });
 });
