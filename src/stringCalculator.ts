@@ -19,15 +19,9 @@ export class StringCalculator {
     };
   }
 
-  private splitAndAddNumbers = (
-    numbersStr: string,
-    delimiter: string
-  ): number => {
+  private splitNumbers = (numbersStr: string, delimiter: string): number[] => {
     const delimiterRegex = new RegExp(`[${delimiter}\n]`);
-    return numbersStr
-      .split(delimiterRegex)
-      .map((num) => parseInt(num))
-      .reduce((sum, num) => sum + num, 0);
+    return numbersStr.split(delimiterRegex).map((num) => parseInt(num));
   };
 
   public Add(inputStr: string): number {
@@ -36,6 +30,15 @@ export class StringCalculator {
     }
 
     const { numbersStr, delimiter } = this.getNumbersStrAndDelimiter(inputStr);
-    return this.splitAndAddNumbers(numbersStr, delimiter);
+
+    const numberArray = this.splitNumbers(numbersStr, delimiter);
+    const negativeNumbers = numberArray.filter((num) => num < 0);
+    if (negativeNumbers.length) {
+      throw new Error(`Negatives not allowed: ${negativeNumbers.join(", ")}`);
+    }
+
+    return numberArray.reduce((sum, num) => {
+      return sum + num;
+    });
   }
 }
