@@ -56,6 +56,10 @@ describe("String Calculator", () => {
     expect(result).toBe(6);
   });
 
-  it.todo("Support multiple delimiters");
+  it("Support multiple delimiters", () => {
+    const result = calculator.Add("//[*][%]\n1*2%3");
+    expect(result).toBe(6);
+  });
+
   it.todo("Support multiple delimiters with any length");
 });
