@@ -1,3 +1,4 @@
-export function stringAddCalculator(_numbers: string): number {
-  return 0;
+export function stringAddCalculator(numbers: string): number {
+  if (!numbers) return 0;
+  return parseInt(numbers);
 }
