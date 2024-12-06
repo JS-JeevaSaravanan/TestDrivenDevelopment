@@ -1,1 +1,3 @@
-export function stringAddCalculator(_numbers: string) {}
+export function stringAddCalculator(_numbers: string): number {
+  return 0;
+}
