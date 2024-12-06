@@ -26,4 +26,7 @@ describe("String Calculator", () => {
     const result = calculator.Add("1,2,3,4,5");
     expect(result).toBe(15);
   });
+
+  it.todo("Support newline as delimiter instead of comma");
+  it.todo("Support custom delimiter specified in the beginning of the string");
 });
