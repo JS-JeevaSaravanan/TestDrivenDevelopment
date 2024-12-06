@@ -51,7 +51,11 @@ describe("String Calculator", () => {
     expect(result).toBe(2);
   });
 
-  it.todo("Support delimiters of any length");
+  it("Support delimiters of any length", () => {
+    const result = calculator.Add("//[***]\n1***2***3");
+    expect(result).toBe(6);
+  });
+
   it.todo("Support multiple delimiters");
   it.todo("Support multiple delimiters with any length");
 });
