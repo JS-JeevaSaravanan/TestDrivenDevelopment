@@ -1,40 +1,62 @@
 export class StringCalculator {
   private getNumbersStrAndDelimiter(numbersStr: string): {
     numbersStr: string;
-    delimiter: string;
+    delimiters: string[];
   } {
     const customDelimiterKeyword = "//";
-    let delimiter = ",";
+    const multipleCharDelimiterStart = "[";
+    const multipleCharDelimiterEnd = "]";
+
+    const delimiters = [",", "\n"];
 
     if (numbersStr.startsWith(customDelimiterKeyword)) {
-      const delimiterStartIndex = numbersStr.indexOf("[");
-      const delimiterEndIndex = numbersStr.indexOf("]");
+      const delimiterEndIndex = numbersStr.indexOf("\n");
 
-      if (delimiterStartIndex !== -1 && delimiterEndIndex !== -1) {
-        delimiter = numbersStr.slice(
-          delimiterStartIndex + 1,
-          delimiterEndIndex
-        );
-        numbersStr = numbersStr.slice(delimiterEndIndex + 2);
-      } else {
-        const delimiterEndIndex = numbersStr.indexOf("\n");
-        delimiter = numbersStr.slice(
+      if (
+        numbersStr.startsWith(
+          `${customDelimiterKeyword}${multipleCharDelimiterStart}`
+        )
+      ) {
+        const delimitersStr = numbersStr.slice(
           customDelimiterKeyword.length,
           delimiterEndIndex
         );
-        numbersStr = numbersStr.slice(delimiterEndIndex + 1);
+
+        const regexPattern = `\\${multipleCharDelimiterStart}(.*?)\\${multipleCharDelimiterEnd}`;
+        const delimitersRegex = new RegExp(regexPattern, "g");
+
+        const allDelimiterMatches = [
+          ...delimitersStr.matchAll(delimitersRegex),
+        ];
+
+        allDelimiterMatches.forEach((match) => {
+          delimiters.push(match[1]);
+        });
+      } else {
+        delimiters.push(
+          numbersStr.slice(customDelimiterKeyword.length, delimiterEndIndex)
+        );
       }
+      numbersStr = numbersStr.slice(delimiterEndIndex + 1);
     }
 
     return {
       numbersStr,
-      delimiter,
+      delimiters,
     };
   }
 
-  private splitNumbers = (numbersStr: string, delimiter: string): number[] => {
-    const delimiterRegex = new RegExp(`[${delimiter}\n]`);
-    return numbersStr.split(delimiterRegex).map((num) => parseInt(num));
+  private splitNumbers = (
+    numbersStr: string,
+    delimiters: string[]
+  ): number[] => {
+    const delimiterRegex = new RegExp(`[${delimiters.join("")}]`);
+
+    const numbers = numbersStr
+      .split(delimiterRegex)
+      .map((num) => parseInt(num));
+
+    return numbers;
   };
 
   public Add(inputStr: string): number {
@@ -42,9 +64,9 @@ export class StringCalculator {
       return 0;
     }
 
-    const { numbersStr, delimiter } = this.getNumbersStrAndDelimiter(inputStr);
+    const { numbersStr, delimiters } = this.getNumbersStrAndDelimiter(inputStr);
 
-    const numberArray = this.splitNumbers(numbersStr, delimiter);
+    const numberArray = this.splitNumbers(numbersStr, delimiters);
     const negativeNumbers = numberArray.filter((num) => num < 0);
     if (negativeNumbers.length) {
       throw new Error(`Negatives not allowed: ${negativeNumbers.join(", ")}`);
