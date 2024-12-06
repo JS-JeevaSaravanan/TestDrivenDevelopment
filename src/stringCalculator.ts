@@ -5,14 +5,27 @@ export class StringCalculator {
   } {
     const customDelimiterKeyword = "//";
     let delimiter = ",";
+
     if (numbersStr.startsWith(customDelimiterKeyword)) {
-      const delimiterEndIndex = numbersStr.indexOf("\n");
-      delimiter = numbersStr.slice(
-        customDelimiterKeyword.length,
-        delimiterEndIndex
-      );
-      numbersStr = numbersStr.slice(delimiterEndIndex + 1);
+      const delimiterStartIndex = numbersStr.indexOf("[");
+      const delimiterEndIndex = numbersStr.indexOf("]");
+
+      if (delimiterStartIndex !== -1 && delimiterEndIndex !== -1) {
+        delimiter = numbersStr.slice(
+          delimiterStartIndex + 1,
+          delimiterEndIndex
+        );
+        numbersStr = numbersStr.slice(delimiterEndIndex + 2);
+      } else {
+        const delimiterEndIndex = numbersStr.indexOf("\n");
+        delimiter = numbersStr.slice(
+          customDelimiterKeyword.length,
+          delimiterEndIndex
+        );
+        numbersStr = numbersStr.slice(delimiterEndIndex + 1);
+      }
     }
+
     return {
       numbersStr,
       delimiter,
