@@ -36,4 +36,7 @@ describe("String Calculator", () => {
     const result = calculator.Add("//;\n1;2");
     expect(result).toBe(3);
   });
+
+  it.todo("Negative numbers should throw an exception");
+  it.todo("Numbers greater than 1000 should be ignored in the sum calculation");
 });
