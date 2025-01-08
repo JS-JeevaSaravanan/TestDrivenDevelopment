@@ -10,4 +10,9 @@ describe("Prime Factors", () => {
     const result = primeFactors(2);
     expect(result).toEqual([2]);
   });
+
+  it("Prime factors of 3 should be [3]", () => {
+    const result = primeFactors(3);
+    expect(result).toEqual([3]);
+  });
 });
