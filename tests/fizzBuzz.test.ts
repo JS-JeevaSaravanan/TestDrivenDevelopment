@@ -10,13 +10,8 @@ describe("Fizz Buzz", () => {
     expect(result).toBe(expectedOutput);
   });
 
-  it("Should return Fizz for 3", () => {
-    const result = fizzBuzz(3);
-    expect(result).toBe("Fizz");
-  });
-
-  it("Should return Fizz for 6", () => {
-    const result = fizzBuzz(6);
+  test.each([[3], [6]])("Should return Fizz for %i", (input) => {
+    const result = fizzBuzz(input);
     expect(result).toBe("Fizz");
   });
 });

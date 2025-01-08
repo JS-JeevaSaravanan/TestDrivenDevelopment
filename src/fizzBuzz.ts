@@ -1,5 +1,5 @@
 const fizzBuzz = (num: number): string => {
-  if ([3, 6].includes(num)) return "Fizz";
+  if (num % 3 === 0) return "Fizz";
   return num.toString();
 };
 
