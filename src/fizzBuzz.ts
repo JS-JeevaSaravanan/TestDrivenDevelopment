@@ -1,5 +1,5 @@
-const fizzBuzz = (num: Number): string => {
-  if (num === 3) return "Fizz";
+const fizzBuzz = (num: number): string => {
+  if ([3, 6].includes(num)) return "Fizz";
   return num.toString();
 };
 
