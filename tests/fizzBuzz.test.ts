@@ -9,4 +9,9 @@ describe("Fizz Buzz", () => {
     const result = fizzBuzz(input);
     expect(result).toBe(expectedOutput);
   });
+
+  it("Should return Fizz for 3", () => {
+    const result = fizzBuzz(3);
+    expect(result).toBe("Fizz");
+  });
 });
