@@ -5,4 +5,8 @@ describe("Fizz Buzz", () => {
     const result = fizzBuzz(1);
     expect(result).toBe("1");
   });
+  it("Should return 2 for 2", () => {
+    const result = fizzBuzz(2);
+    expect(result).toBe("2");
+  });
 });
