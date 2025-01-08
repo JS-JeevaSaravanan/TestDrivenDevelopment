@@ -20,7 +20,7 @@ export class StringCalculator {
     const numberArray = this.convertStringToNumbers(numbersStr, delimiters);
     this.checkForNegativeNumbers(numberArray);
 
-    return this.calculateSum(numberArray, operationType);
+    return this.calculate(numberArray, operationType);
   }
 
   private extractDelimitersAndOperation(numbersStr: string): {
@@ -91,7 +91,7 @@ export class StringCalculator {
     }
   }
 
-  private calculateSum(numbers: number[], operationType: Operations): number {
+  private calculate(numbers: number[], operationType: Operations): number {
     if (operationType === Operations.MULTIPLY) {
       return numbers.reduce((sum, num) => {
         return num <= StringCalculator.VALUE_LIMIT ? sum * num : sum;
