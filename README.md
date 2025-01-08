@@ -83,3 +83,8 @@ https://osherove.com/tdd-kata-1/
 
 FizzBuzz:
 https://www.codurance.com/katas/fizzbuzz
+
+Prime Factors:
+https://youtu.be/qkblc5WRn-U
+
+
