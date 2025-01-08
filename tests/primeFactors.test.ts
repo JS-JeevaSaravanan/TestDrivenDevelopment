@@ -20,4 +20,9 @@ describe("Prime Factors", () => {
     const result = primeFactors(4);
     expect(result).toEqual([2, 2]);
   });
+
+  it("Prime factors of 5 should be [5]", () => {
+    const result = primeFactors(5);
+    expect(result).toEqual([5]);
+  });
 });
