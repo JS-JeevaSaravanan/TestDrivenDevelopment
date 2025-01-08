@@ -1,14 +1,20 @@
 const primeFactors = (num: number): number[] => {
   const factorList: number[] = [];
+  let remainder = num;
 
-  if (num > 1) {
-    if (num % 2 === 0) {
-      const countsOfTwoDivisions = Math.floor(num / 2);
-      for (let i = 0; i < countsOfTwoDivisions; i++) {
-        factorList.push(2);
-      }
-    } else {
-      factorList.push(num);
+  if (remainder > 1) {
+    while (remainder % 2 === 0) {
+      factorList.push(2);
+      remainder = remainder / 2;
+    }
+
+    while (remainder % 3 === 0) {
+      factorList.push(3);
+      remainder = remainder / 3;
+    }
+
+    if (remainder > 1) {
+      factorList.push(remainder);
     }
   }
 
