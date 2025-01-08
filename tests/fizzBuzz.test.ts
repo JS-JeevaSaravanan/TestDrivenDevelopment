@@ -1,18 +1,12 @@
 import { fizzBuzz } from "../src/fizzBuzz";
 
 describe("Fizz Buzz", () => {
-  it("Should return 1 for 1", () => {
-    const result = fizzBuzz(1);
-    expect(result).toBe("1");
-  });
-
-  it("Should return 2 for 2", () => {
-    const result = fizzBuzz(2);
-    expect(result).toBe("2");
-  });
-
-  it("Should return 4 for 4", () => {
-    const result = fizzBuzz(4);
-    expect(result).toBe("4");
+  test.each([
+    [1, "1"],
+    [2, "2"],
+    [4, "4"],
+  ])("Should return %s for %i", (input, expectedOutput) => {
+    const result = fizzBuzz(input);
+    expect(result).toBe(expectedOutput);
   });
 });
