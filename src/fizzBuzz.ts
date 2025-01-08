@@ -1,7 +1,14 @@
 const fizzBuzz = (num: number): string => {
-  if (num % 3 === 0) return "Fizz";
-  else if (num === 5 || num === 10) return "Buzz";
-  return num.toString();
+  switch (true) {
+    case num % 3 === 0 && num % 5 === 0:
+      return "FizzBuzz";
+    case num % 3 === 0:
+      return "Fizz";
+    case num % 5 === 0:
+      return "Buzz";
+    default:
+      return `${num}`;
+  }
 };
 
 export { fizzBuzz };

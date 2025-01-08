@@ -13,19 +13,19 @@ describe("Fizz Buzz", () => {
   });
 
   describe("Numbers divisible by 3", () => {
-    test.each([[3], [6], [9], [1230]])("Should return Fizz for %i", (input) => {
+    test.each([[3], [6], [9], [1233]])("Should return Fizz for %i", (input) => {
       const result = fizzBuzz(input);
       expect(result).toBe("Fizz");
     });
   });
 
-  it("Should return Buzz for 5", () => {
-    const result = fizzBuzz(5);
-    expect(result).toBe("Buzz");
-  });
-
-  it("Should return Buzz for 10", () => {
-    const result = fizzBuzz(10);
-    expect(result).toBe("Buzz");
+  describe("Numbers divisible by 5", () => {
+    test.each([[5], [10], [205], [10_000]])(
+      "Should return Buzz for %i",
+      (input) => {
+        const result = fizzBuzz(input);
+        expect(result).toBe("Buzz");
+      }
+    );
   });
 });
