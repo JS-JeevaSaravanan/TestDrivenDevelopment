@@ -50,4 +50,9 @@ describe("Prime Factors", () => {
     const result = primeFactors(25);
     expect(result).toEqual([5, 5]);
   });
+
+  it("Prime factors of 100 should be [2, 2, 5, 5]", () => {
+    const result = primeFactors(100);
+    expect(result).toEqual([2, 2, 5, 5]);
+  });
 });
