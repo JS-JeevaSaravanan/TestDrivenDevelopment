@@ -1,3 +1,3 @@
-const fizzBuzz = () => {};
+const fizzBuzz = (num: Number) => {};
 
 export { fizzBuzz };
