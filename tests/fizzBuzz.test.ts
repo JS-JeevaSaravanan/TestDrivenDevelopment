@@ -28,4 +28,9 @@ describe("Fizz Buzz", () => {
       }
     );
   });
+
+  it("FizzBuzz for 15", () => {
+    const result = fizzBuzz(15);
+    expect(result).toBe("FizzBuzz");
+  });
 });
