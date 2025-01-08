@@ -29,8 +29,13 @@ describe("Fizz Buzz", () => {
     );
   });
 
-  it("FizzBuzz for 15", () => {
-    const result = fizzBuzz(15);
-    expect(result).toBe("FizzBuzz");
+  describe("Numbers divisible by both 3 and 5", () => {
+    test.each([[15], [30], [450], [1500]])(
+      "Should return FizzBuzz for %i",
+      (input) => {
+        const result = fizzBuzz(input);
+        expect(result).toBe("FizzBuzz");
+      }
+    );
   });
 });
