@@ -1,4 +1,3 @@
-
 # TDD String Calculator
 
 This repository contains an implementation of a **String Calculator** that supports various delimiters (comma, newline, and custom multi-character delimiters). It performs summation of numbers provided in a string format, while handling errors like negative numbers and numbers greater than 1000.
@@ -12,7 +11,7 @@ This repository contains an implementation of a **String Calculator** that suppo
 
 ## TDD Approach
 
-This project was developed using **Test-Driven Development (TDD)**, ensuring that the implementation is thoroughly tested from the start. 
+This project was developed using **Test-Driven Development (TDD)**, ensuring that the implementation is thoroughly tested from the start.
 
 ### Why TDD?
 
@@ -33,6 +32,7 @@ This project was developed using **Test-Driven Development (TDD)**, ensuring tha
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/JS-JeevaSaravanan/tdd-string-calculator.git
    cd tdd-string-calculator
@@ -48,7 +48,7 @@ This project was developed using **Test-Driven Development (TDD)**, ensuring tha
 ### Example Usage
 
 ```typescript
-import { StringCalculator } from './StringCalculator';
+import { StringCalculator } from "./StringCalculator";
 
 const calculator = new StringCalculator();
 
@@ -77,4 +77,9 @@ This will run all the test cases to verify the functionality of the `StringCalcu
 - **Refactor with Confidence**: The tests allow for safe refactoring and feature additions without fear of breaking existing functionality.
 
 ### References:
+
+String Calculator:
 https://osherove.com/tdd-kata-1/
+
+FizzBuzz:
+https://www.codurance.com/katas/fizzbuzz
