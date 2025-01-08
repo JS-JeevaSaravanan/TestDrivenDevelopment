@@ -1,8 +1,11 @@
 const primeFactors = (num: number): number[] => {
-  if (num === 2) {
-    return [2];
+  const factorList: number[] = [];
+
+  if (num > 1) {
+    factorList.push(num);
   }
-  return [];
+
+  return factorList;
 };
 
 export { primeFactors };
