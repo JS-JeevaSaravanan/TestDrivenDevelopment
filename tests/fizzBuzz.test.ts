@@ -19,10 +19,13 @@ describe("Fizz Buzz", () => {
     });
   });
 
-
   it("Should return Buzz for 5", () => {
     const result = fizzBuzz(5);
     expect(result).toBe("Buzz");
   });
 
+  it("Should return Buzz for 10", () => {
+    const result = fizzBuzz(10);
+    expect(result).toBe("Buzz");
+  });
 });
