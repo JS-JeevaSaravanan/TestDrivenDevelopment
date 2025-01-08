@@ -14,4 +14,9 @@ describe("Fizz Buzz", () => {
     const result = fizzBuzz(3);
     expect(result).toBe("Fizz");
   });
+
+  it("Should return Fizz for 6", () => {
+    const result = fizzBuzz(6);
+    expect(result).toBe("Fizz");
+  });
 });
