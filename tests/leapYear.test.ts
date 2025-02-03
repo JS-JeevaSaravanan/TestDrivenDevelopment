@@ -10,6 +10,9 @@ describe("leap year test", () => {
         expect(isLeapYear(996)).toBe(true);
     })
 
+    it('should return true if year is divisible by 400', () => {
+        expect(isLeapYear(1600)).toBe(true);
+    })
 
 })
 
