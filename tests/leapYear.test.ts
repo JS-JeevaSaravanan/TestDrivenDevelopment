@@ -6,5 +6,10 @@ describe("leap year test", () => {
         expect(isLeapYear(1997)).toBe(false);
     });
 
+    it('should return true if year is divisible by 4', () => {
+        expect(isLeapYear(996)).toBe(true);
+    })
+
+
 })
 
