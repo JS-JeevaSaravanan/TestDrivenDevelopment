@@ -4,4 +4,8 @@ describe("string calculator", () => {
     it('should return 0 when empty string', () => {
         expect(stringCalculator2("")).toBe(0);
     });
+
+    it('should return same number when input is single number', () => {
+        expect(stringCalculator2("4")).toBe(4);
+    });
 })
